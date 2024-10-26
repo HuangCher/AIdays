@@ -5,28 +5,38 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import '../css/homePage.css';
 
+
 function HomePage() {
     return (
-        <Container maxWidth = 'xl' className = "homePageDiv">
-            <h1>For(ward) Casting</h1>
-            <p> Your place for all the most important news for natural disaster planning.
-            To get started, please input your city, state, and zipcode.</p>
+        <Container maxWidth='xl' className="homePageDiv" 
+            style={{
+                backgroundColor: '#e0f7fa', 
+                padding: '40px',
+                borderRadius: '8px',
+                textAlign: 'center',
+            }}
+        >
+            <h1 style={{ color: '#00695c', fontSize: '2.5', fontWeight: 'bold' }}>FOR(WARD) CASTING</h1>
+            <p style={{ color: '#004d40', fontSize: '1.2' }}>
+                Your place for all the most important news for natural disaster planning.
+                To get started, please input your city, state, and zipcode.
+            </p>
 
             {/* form */}
             <Box
                 component="form"
                 sx={{
                     '& .MuiTextField-root': {
-                        m: 1,
+                        m: 2,
                         width: '25ch',
                         '& .MuiInputBase-root': {
-                            color: 'white', // Change text color
+                            color: '#004d40', // Change text color
                         },
                         '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor: 'white', // Change border color
+                            borderColor: '#004d40', // Change border color
                         },
                         '& .MuiInputLabel-root': {
-                            color: 'white', // Change label color
+                            color: '#004d40', // Change label color
                         }
                     }
                 }}
@@ -42,11 +52,19 @@ function HomePage() {
                 {/* zipcode */}
                 <TextField id="outlined-search" label="Zipcode" type="search" />
             </Box>
-
-            <Button variant="contained" >
-                Send
+            
+            <Button
+            variant="contained"
+            className="homePageButton"
+            style={{
+                background: 'linear-gradient(45deg, #00838f, #00695c)',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '10px 20px',
+                borderRadius: '20px',
+            }}>
+            Send
             </Button>
-
 
 
         </Container>

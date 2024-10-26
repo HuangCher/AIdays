@@ -1,0 +1,44 @@
+.evacuationProtocolsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #12171c; 
+    color: #e1e5ea;
+    padding: 20px;
+  }
+  
+  .title {
+    color: #00695c;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    color: #004d40;
+    margin-bottom: 30px;
+  }
+  
+  .protocolsHeading, .locationsHeading {
+    color: #00838f;
+    margin-bottom: 20px;
+  }
+  
+  .protocolsList, .locationsList {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #00695c;
+  }
+  
+  .protocolItem, .locationItem {
+    margin: 10px 0;
+  }
+  
+  .backButton {
+    margin-top: 30px;
+    background: linear-gradient(45deg, #00838f, #00695c);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+  }
+  

@@ -1,0 +1,40 @@
+.naviPageDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: #2b2f33;
+    color: #e1e5ea;
+    padding: 40px;
+  }
+  
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .navButton {
+    background-color: transparent;
+    border: none;
+    color: #e1e5ea;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .navButton:hover {
+    color: #f44336; 
+  }
+  
+  .alertMessage {
+    font-size: 2.5rem;
+    color: #f44336; 
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+  
