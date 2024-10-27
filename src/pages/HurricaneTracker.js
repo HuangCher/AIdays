@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../css/HurricaneTracker.css'; // Make sure to create this CSS file
 
 const USER_AGENT = "(yourapp.com, contact@yourapp.com)";
 
@@ -53,26 +54,30 @@ const HurricaneTracker = ({ lat, lon, area }) => {
 
     return (
         <div className="hurricane-tracker">
-            <h1>Hurricane Tracker</h1>
 
             {/* Forecast Section */}
             <div className="forecast">
                 <h2>Forecast</h2>
                 {forecast ? (
-                    forecast.properties.periods.map((period, index) => (
-                        <div key={index} className="forecast-period">
-                            <h3>{period.name}</h3>
-                            <p>Temperature: {period.temperature}°{period.temperatureUnit}</p>
-                            <p>Wind: {period.windSpeed} {period.windDirection}</p>
-                            <p>Details: {period.detailedForecast}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>Loading forecast data...</p>
-                )}
+                <div className="forecast-container"> {/* New container for horizontal layout */}
+                    {forecast.properties.periods
+                        .filter(period => !period.name.includes("Night") && !period.name.includes("Tonight"))
+                        .map((period, index) => (
+                            <div key={index} className="forecast-period">
+                                <h3>{period.name}</h3>
+                                <p>Temperature: {period.temperature}°{period.temperatureUnit}</p>
+                                <p>Wind: {period.windSpeed} {period.windDirection}</p>
+                                <p>Details: {period.detailedForecast}</p>
+                            </div>
+                        ))}
+                </div>
+            ) : (
+                <p className="loading">Loading forecast data...</p>
+            )}
+
             </div>
 
-            {/* Alerts Section */}
+            {/* Alerts Section
             <div className="alerts">
                 <h2>Alerts</h2>
                 {alerts ? (
@@ -80,23 +85,22 @@ const HurricaneTracker = ({ lat, lon, area }) => {
                         alerts.features.map((alert, index) => (
                             <div key={index} className="alert">
                                 <h3>{alert.properties.event}</h3>
-                                <p>Severity: {alert.properties.severity}</p>
-                                <p>Effective: {new Date(alert.properties.effective).toLocaleString()}</p>
-                                <p>Expires: {new Date(alert.properties.expires).toLocaleString()}</p>
+                                <p><strong>Severity:</strong> {alert.properties.severity}</p>
+                                <p><strong>Effective:</strong> {new Date(alert.properties.effective).toLocaleString()}</p>
+                                <p><strong>Expires:</strong> {new Date(alert.properties.expires).toLocaleString()}</p>
                                 <p>{alert.properties.description}</p>
-                                <p>Instructions: {alert.properties.instruction || "N/A"}</p>
+                                <p><strong>Instructions:</strong> {alert.properties.instruction || "N/A"}</p>
                             </div>
                         ))
                     ) : (
                         <p>No active alerts.</p>
                     )
                 ) : (
-                    <p>Loading alerts data...</p>
+                    <p className="loading">Loading alerts data...</p>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 };
 
 export default HurricaneTracker;
-

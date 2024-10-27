@@ -13,15 +13,28 @@ function SafetyPage() {
     ];
 
     return (
-        <Container maxWidth="xl" className="safetyTipsDiv">
-            <Box sx={{ textAlign: 'center', marginBottom: '30px' }}>
+        <Container 
+            maxWidth="xl" 
+            style={{ height: '100%', display: 'flex', flexDirection: 'column' }} // Add this style
+            className="safetyTipsDiv"
+        >
+            <Box sx={{ textAlign: 'center', marginBottom: '10px' }}>
                 <Typography variant="h3" className="title">Safety Tips</Typography>
                 <Typography variant="h6" className="subtitle">
                     Be prepared for natural disasters with these essential tips.
                 </Typography>
             </Box>
 
-            <Box sx={{ margin: '20px', padding: '20px', backgroundColor: '#e0f7fa', borderRadius: '8px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+            <Box 
+                sx={{ 
+                    margin: '20px', 
+                    padding: '20px', 
+                    backgroundColor: '#e0f7fa', 
+                    borderRadius: '8px', 
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', 
+                    flex: 1 // Make this Box grow to fill available space
+                }}
+            >
                 <Typography variant="h5" className="tipsHeading">Here are some important safety tips:</Typography>
                 <ul className="tipsList">
                     {tips.map((tip, index) => (
